@@ -1,0 +1,364 @@
+import React, { Component } from 'react';
+import { AppRegistry, Text, View, TouchableHighlight, Dimensions, StyleSheet, Image, TextInput, ImageBackground } from 'react-native';
+import Constants from 'expo-constants';
+
+let deviceHeight = Dimensions.get('window').height;
+let deviceWidth = Dimensions.get('window').width;
+
+export default class App extends Component {
+    state = {
+        homePage: "block",
+        levelsPage: "none",
+        colorPage: "none",
+        musicPage: "none",
+        mePage: "none",
+        inputValue: ''
+    }
+    
+    _handleTextChange = inputValue => {
+        this.setState({ inputValue });
+    };
+    
+    homePageButtonPress = () => this.setState(state => ({
+        homePage: "block",
+        levelsPage: "none",
+        colorPage: "none",
+        musicPage: "none",
+        mePage: "none",
+    }))
+    
+    levelsPageButtonPress = () => this.setState(state => ({
+        homePage: "none",
+        levelsPage: "block",
+        colorPage: "none",
+        musicPage: "none",
+        mePage: "none",
+    }))
+    
+    colorPageButtonPress = () => this.setState(state => ({
+        homePage: "none",
+        levelsPage: "none",
+        colorPage: "block",
+        musicPage: "none",
+        mePage: "none",
+    }))
+    
+    musicPageButtonPress = () => this.setState(state => ({
+        homePage: "none",
+        levelsPage: "none",
+        colorPage: "none",
+        musicPage: "block",
+        mePage: "none",
+    }))
+    
+    mePageButtonPress = () => this.setState(state => ({
+        homePage: "none",
+        levelsPage: "none",
+        colorPage: "none",
+        musicPage: "none",
+        mePage: "block",
+    }))
+    
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style = {styles.title}>
+                    <ImageBackground
+                        style={styles.background}
+                        source={{ uri: 'https://tutorials-cdn.pixelmator.com/gradient-tool/top.jpg' }}
+                    >
+                        <View>
+                            <Text style = {styles.titleText}>Beyblade</Text>
+                        </View>
+                    </ImageBackground>
+                </View>
+                
+                <View style = {{display: this.state.homePage}}>
+                    <View style = {styles.homePageBody}>
+                        <ImageBackground
+                            style={{height: deviceHeight/5*3, opacity: 0.3}}
+                            source={{ uri: 'https://m.media-amazon.com/images/M/MV5BODg4YTVkYmQtZDg3MC00NWYzLTlhZDYtM2JkNTAyYjk4MjIyXkEyXkFqcGdeQXVyOTcyNTkzOTA@._V1_.jpg' }}
+                        >
+                            <View>
+                                <Text> </Text>
+                            </View>
+                        </ImageBackground>
+                    </View>
+                </View>
+                
+                <View style = {{display: this.state.levelsPage}}>
+                    <View style = {styles.levelPageBody}>
+                        <View style = {styles.levelButton}>
+                            <Text style = {styles.levelButtonText}>Level 1</Text>
+                        </View>
+                        
+                        <View style = {styles.levelButton}>
+                            <Text style = {styles.levelButtonText}>Level 2</Text>
+                        </View>
+                        
+                        <View style = {styles.levelButton}>
+                            <Text style = {styles.levelButtonText}>Level 3</Text>
+                        </View>
+                        
+                        <View style = {styles.levelButton}>
+                            <Text style = {styles.levelButtonText}>Level 4</Text>
+                        </View>
+                        
+                        <View style = {styles.levelButton}>
+                            <Text style = {styles.levelButtonText}>Level 5</Text>
+                        </View>
+                    </View>
+                </View>
+                
+                <View style = {{display: this.state.colorPage}}>
+                    <View style = {styles.colorPageBody}>
+                        <Image
+                            source={{ uri: 'https://o.remove.bg/downloads/0d0c00c0-25ee-4253-b3a2-0cde00ec43cc/image-removebg-preview.png' }}
+                            style={{ height: 50, width: 50, marginTop: 5 }}
+                        />
+                        
+                        <Text style = {{color: "red", fontSize: 20, fontWeight: "bold",}}>Red</Text>
+                        
+                        <Image
+                            source={{ uri: 'https://o.remove.bg/downloads/a47ef51b-a9d6-46e5-bc4f-3a1e696ead39/image-removebg-preview.png' }}
+                            style={{ height: 50, width: 50, marginTop: 5}}
+                        />
+                        
+                        <Text style = {{color: "blue", fontSize: 20, fontWeight: "bold",}}>Blue</Text>
+                        
+                        <Image
+                            source={{ uri: 'https://o.remove.bg/downloads/147c210e-e1cf-49ae-bb3b-18303d21bc1d/image-removebg-preview.png' }}
+                            style={{ height: 50, width: 50, marginTop: 5 }}
+                        />
+                        
+                        <Text style = {{color: "yellow", fontSize: 20, fontWeight: "bold",}}>Yellow</Text>
+                        
+                        <Image
+                            source={{ uri: 'https://o.remove.bg/downloads/571af9b6-554f-49bb-af30-361d0cb37984/image-removebg-preview.png' }}
+                            style={{ height: 45, width: 50, marginTop: 5 }}
+                        />
+                        
+                        <Text style = {{color: "green", fontSize: 20, fontWeight: "bold",}}>Green</Text>
+                    </View>
+                </View>
+                
+                <View style = {{display: this.state.musicPage}}>
+                    <View style = {styles.musicPageBody}>
+                        <View style = {{margin: 20, borderWidth: 1, flexDirection: "row", color: "white"}}>
+                            <TextInput style = {styles.input}
+                                value={this.state.inputValue}
+                                onChangeText={this._handleTextChange}
+                                style={{ width: 200, height: 30, padding: 8, color: "white" }}
+                            />
+                            
+                            <View style = {{backgroundColor: "blue", alignItems: "center", justifyContent: "center", width: "23%"}}>
+                                <Image
+                                source={{ uri: 'https://codehs.com/uploads/55c6938d3d45ecfb8a32916545f27306' }}
+                                style={{width: 30, height: 30}}
+                                />
+                            </View>
+                        </View>
+                        
+                        <View style = {styles.musicList}>
+                            <View style = {styles.musicBubble}>
+                                <Text style = {styles.musicText}>
+                                    1.   Little Dark Age
+                                </Text>
+                            </View>
+                            
+                            <View style = {styles.musicBubble}>
+                                <Text style = {styles.musicText}>
+                                    2.   Tainted Love
+                                </Text>
+                            </View>
+                            
+                            <View style = {styles.musicBubble}>
+                                <Text style = {styles.musicText}>
+                                    3.   Feeling Good
+                                </Text>
+                            </View>
+                            
+                            <View style = {styles.musicBubble}>
+                                <Text style = {styles.musicText}>
+                                    4.   Smooth Operator
+                                </Text>
+                            </View>
+                            
+                            <View style = {styles.musicBubble}>
+                                <Text style = {styles.musicText}>
+                                    5.   The Grand Duel
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                </View>
+
+                <View style = {{display: this.state.mePage}}>
+                    <View style = {styles.mePageBody}>
+                        <View>
+                            <Text>This is the me page</Text>
+                        </View>
+                    </View>
+                </View>
+                
+                <View style = {styles.bottom}>
+                    <ImageBackground
+                        style={styles.background}
+                        source={{ uri: 'https://tutorials-cdn.pixelmator.com/gradient-tool/top.jpg' }}
+                    >
+                        <View style = {styles.bottomIcons}>
+                            <TouchableHighlight
+                                onPress={this.homePageButtonPress}
+                            >
+                                <View>
+                                    <Image
+                                        source={{ uri: 'https://cdn-icons-png.flaticon.com/512/25/25694.png' }}
+                                        style={{ height: 50, width: 50, marginLeft: -10 }}
+                                    />
+                                    
+                                    <Text style = {{fontWeight: "bold", marginLeft: -5}}>Home</Text>
+                                </View>
+                            </TouchableHighlight>
+                            
+                            <TouchableHighlight
+                                onPress={this.levelsPageButtonPress}
+                            >
+                                <View>
+                                    <Image
+                                        source={{ uri: 'https://o.remove.bg/downloads/4cb34559-6ec8-4260-9d83-2ea6f04f09c2/images-removebg-preview.png' }}
+                                        style={{ height: 60, width: 60, }}
+                                    />
+                                    
+                                    <Text style = {{fontWeight: "bold", marginLeft: 10, marginTop: -7}}>Levels</Text>
+                                </View>
+                            </TouchableHighlight>
+                            
+                            <TouchableHighlight
+                                onPress={this.colorPageButtonPress}
+                            >
+                                <View>
+                                    <Image
+                                        source={{ uri: 'https://o.remove.bg/downloads/c4634b66-cb60-4028-98a5-217a106c2304/28639059-7228de38-720c-11e7-9af7-4a000c5ca7a2-removebg-preview.png' }}
+                                        style={{ height: 50, width: 50}}
+                                    />
+                                    
+                                    <Text style = {{fontWeight: "bold", marginLeft: 5}}>Color</Text>
+                                </View>
+                            </TouchableHighlight>
+                            
+                            <TouchableHighlight
+                                onPress={this.musicPageButtonPress}
+                            >
+                                <View>
+                                    <Image
+                                        source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Simple_Music.svg/2048px-Simple_Music.svg.png' }}
+                                        style={{ height: 40, width: 40, marginTop: 7, marginLeft: 10}}
+                                    />
+                                    
+                                    <Text style = {{fontWeight: "bold", marginTop: 7, marginLeft: 10}}>Music</Text>
+                                </View>
+                            </TouchableHighlight>
+            
+                            <TouchableHighlight
+                                onPress={this.mePageButtonPress}
+                            >
+                                <View>
+                                    <Image
+                                        source={{ uri: 'https://www.svgrepo.com/show/363054/smiley-bold.svg' }}
+                                        style={{ height: 50, width: 50, marginLeft: 10}}
+                                    />
+                                    
+                                    <Text style = {{fontWeight: "bold", marginLeft: 25, marginTop: 5}}>Me</Text>
+                                </View>
+                            </TouchableHighlight>
+                        </View>
+                    </ImageBackground>
+                </View>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        height: deviceHeight,
+        width: deviceWidth,
+        
+    },
+    
+    background: {
+        height: deviceHeight/5,
+        width: deviceWidth,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    
+    titleText: {
+        fontSize: 30,
+        fontWeight: "bold",
+    },
+    
+    homePageBody: {
+        width: deviceWidth,
+        height: deviceHeight/6*5,
+    },
+    
+    levelPageBody: {
+        height: deviceHeight/6*5,
+        alignItems: "center",
+        backgroundColor: "limeGreen",
+    },
+    
+    colorPageBody: {
+        height: deviceHeight/6*5,
+        alignItems: "center",
+        backgroundColor: "lightGray",
+    },
+    
+    musicPageBody: {
+        height: deviceHeight/6*5,
+        backgroundColor: "black",
+    },
+    
+    mePageBody: {
+        height: deviceHeight/6*5,
+    },
+    
+    bottomIcons: {
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    
+    bottomIconsText: {
+        fontWeight: "bold",
+    },
+    
+    levelButton: {
+        alignItems: "center",
+        marginTop: 30,
+        backgroundColor: "black",
+        width: 100,
+    },
+    
+    levelButtonText: {
+        color: "white",
+        fontSize: 30,
+        fontWeight: "bold",
+    },
+    
+    musicBubble: {
+        marginBottom: 20,
+        borderWidth: 1,
+        borderRadius: 40,
+        height: 30,
+        justifyContent: "center",
+        width: 150,
+        color: "white",
+        borderColor: "white",
+    },
+    
+    musicText: {
+        marginLeft: 10,
+    }
+    
+});
